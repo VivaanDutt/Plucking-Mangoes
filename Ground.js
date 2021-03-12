@@ -1,0 +1,9 @@
+class Ground {
+    constructor() {
+
+    }
+    
+    display() {
+        
+    }
+}
