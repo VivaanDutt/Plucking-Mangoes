@@ -1,6 +1,6 @@
 class Launcher {
     constructor(bodyA, pointB) {
-        var options = {bodyA: bodyA, pointB: pointB, length: 5, stiffness: 5};
+        var options = {bodyA: bodyA, pointB: pointB, length: 1, stiffness: 0.5};
         this.body = Constraint.create(options);
         this.bodyA = bodyA;
         this.pointB = pointB;
