@@ -22,7 +22,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	tree = new Tree(930, 300, 525, 600);
+	tree = new Tree(930, 300);
 
 	stone = new Stone(250, 480, 70);
 	
@@ -43,7 +43,7 @@ function setup() {
 function draw() {
   background("grey");
   rectMode(CENTER);
-//   Engine.update(engine);
+  Engine.update(engine);
   imageMode(CENTER);
   image(boyImage, 300, 500, 200, 250);
   ground.display();
@@ -55,6 +55,11 @@ function draw() {
   mango5.display();
   launcher.display();
   stone.display();
+  detectCollision(stone, mango1);
+  detectCollision(stone, mango2);
+  detectCollision(stone, mango3);
+  detectCollision(stone, mango4);
+  detectCollision(stone, mango5);
 }
 
 function mouseDragged() {
@@ -63,4 +68,22 @@ function mouseDragged() {
 
 function mouseReleased() {
 	launcher.fly();
+}
+
+function keyPressed() {
+	if(keyCode === 32) {
+		launcher.attach(stone.body);
+	}
+}
+
+function detectCollision(stoneObj, mangoObj) {
+	mangoBodyPosition = mangoObj.body.position;
+	stoneBodyPosition = stoneObj.body.position;
+
+	var distance = dist(stoneBodyPosition.x, stoneBodyPosition.y, mangoBodyPosition.x, mangoBodyPosition.y);
+		if(distance <= mangoObj.r + stoneObj.r) {
+			console.log(distance);
+			console.log(mangoObj.r + stoneObj.r);
+			Matter.Body.setStatic(mangoObj.body, false);
+		}	
 }

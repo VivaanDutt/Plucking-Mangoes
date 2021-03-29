@@ -1,9 +1,9 @@
 class Tree {
-    constructor(x, y, width, height) {
+    constructor(x, y) {
         var options = {isStatic: true};
-        this.body = Bodies.rectangle(x, y, width, height, options);
-        this.width = width;
-        this.height = height;
+        this.body = Bodies.rectangle(x, y, 10, 10, options);
+        this.width = 10;
+        this.height = 10;
         this.image = loadImage("tree.png");
         World.add(world, this.body);
     }
@@ -13,7 +13,7 @@ class Tree {
         push();
         translate(pos.x, pos.y);
         imageMode(CENTER);
-        image(this.image, 0, 0, this.width, this.height);
+        image(this.image, 0, 0, 525, 600);
         pop();
     }
 }
