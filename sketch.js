@@ -31,6 +31,7 @@ function setup() {
 	mango3 = new Mango(1000, 200, 55);
 	mango4 = new Mango(850, 100, 60);
 	mango5 = new Mango(1120, 200, 57);
+	mango6 = new Mango(950, 250, 70);
 
 	ground = new Ground(600, 590, 1200, 40);
 
@@ -53,6 +54,7 @@ function draw() {
   mango3.display();
   mango4.display();
   mango5.display();
+  mango6.display();
   launcher.display();
   stone.display();
   detectCollision(stone, mango1);
@@ -60,6 +62,7 @@ function draw() {
   detectCollision(stone, mango3);
   detectCollision(stone, mango4);
   detectCollision(stone, mango5);
+  detectCollision(stone, mango6);
 }
 
 function mouseDragged() {
